@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if user.save
       render json: user
     else
-      render json: user.errors.full_messages, status: :unprocessable_entity
+      render json: user.errors.full_messages, status: 418
     end
   end
   
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if user.update(user_params)
       render json: user 
     else 
-      render json: user.errors.full_messages, status: :unprocessable_entity
+      render json: user.errors.full_messages, status: 418
     end 
   end
   

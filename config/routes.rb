@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   put '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
   
+  resources :artworks, except: :index
+  resources :artwork_shares, only: [:create, :destroy]
+  get '/users/:id/artworks', to: 'artworks#index'
+  
+  resources :comments, only: [:create, :destroy, :index]
+  
   # get '/users/new', to: 'users#new', as: 'new_user'  
   # get '/users/:id/edit', to:'users#edit', as: 'edit_user'                                                          
 end
